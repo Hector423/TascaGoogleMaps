@@ -58,6 +58,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(rioDeJaneiro).title("Rio de Janeiro, Brazil"));
         mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, US"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bangor));
+        mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
 
     }
 }
