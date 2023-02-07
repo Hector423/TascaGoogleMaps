@@ -44,8 +44,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+
+        LatLng bangor = new LatLng(44.79815412287835, -68.7732079498604);
+        LatLng santiago = new LatLng(-33.456153371573194, -70.64956511892082);
+        LatLng bogota = new LatLng(4.740328531486702, -74.04890033103689);
+        LatLng saoPaulo = new LatLng(-23.527640215511617, -46.66786248844115);
+        LatLng rioDeJaneiro = new LatLng(-22.91320630400053, -43.17140788845218);
+        LatLng fortworth = new LatLng(32.74113809653637, -97.36895660196694);
+        mMap.addMarker(new MarkerOptions().position(bangor).title("Bangor, US"));
+        mMap.addMarker(new MarkerOptions().position(saoPaulo).title("São Paulo, Brazil"));
+        mMap.addMarker(new MarkerOptions().position(bogota).title("Bogota, Colombia"));
+        mMap.addMarker(new MarkerOptions().position(santiago).title("Santiago, Chile"));
+        mMap.addMarker(new MarkerOptions().position(rioDeJaneiro).title("Rio de Janeiro, Brazil"));
+        mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, US"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(bangor));
+
     }
 }
