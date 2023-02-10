@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.example.activitatgooglemaps.databinding.ActivityMapsBinding;
@@ -51,12 +52,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLng saoPaulo = new LatLng(-23.527640215511617, -46.66786248844115);
         LatLng rioDeJaneiro = new LatLng(-22.91320630400053, -43.17140788845218);
         LatLng fortworth = new LatLng(32.74113809653637, -97.36895660196694);
-        mMap.addMarker(new MarkerOptions().position(bangor).title("Bangor, US"));
-        mMap.addMarker(new MarkerOptions().position(saoPaulo).title("São Paulo, Brazil"));
-        mMap.addMarker(new MarkerOptions().position(bogota).title("Bogota, Colombia"));
-        mMap.addMarker(new MarkerOptions().position(santiago).title("Santiago, Chile"));
-        mMap.addMarker(new MarkerOptions().position(rioDeJaneiro).title("Rio de Janeiro, Brazil"));
-        mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, US"));
+        mMap.addMarker(new MarkerOptions().position(bangor).title("Bangor, US").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(saoPaulo).title("São Paulo, Brazil").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(bogota).title("Bogota, Colombia").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(santiago).title("Santiago, Chile").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(rioDeJaneiro).title("Rio de Janeiro, Brazil").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, US").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bangor));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
 
