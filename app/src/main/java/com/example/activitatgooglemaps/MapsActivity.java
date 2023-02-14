@@ -2,6 +2,8 @@ package com.example.activitatgooglemaps;
 
 import androidx.fragment.app.FragmentActivity;
 
+import android.media.MediaPlayer;
+import android.media.SoundPool;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -17,6 +19,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
+    private MediaPlayer mp;
+    private SoundPool soundPool;
+    int idEfecte;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +34,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+        mp = MediaPlayer.create(this, R.raw.musica_mapa);
+        mp.start();
+
     }
 
     /**
