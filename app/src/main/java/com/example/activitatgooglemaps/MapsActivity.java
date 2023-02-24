@@ -19,8 +19,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityMapsBinding binding;
-    private MediaPlayer mp;
-    private SoundPool soundPool;
+
     int idEfecte;
 
     @Override
@@ -34,8 +33,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        mp = MediaPlayer.create(this, R.raw.musica_mapa);
-        mp.start();
+
+//        mp = MediaPlayer.create(this, R.raw.musica_mapa);
+//        mp.start();
+        MusicHolder.UpdateContext(MapsActivity.this);
+        MusicHolder.Start();
 
     }
 

@@ -14,19 +14,13 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        MusicHolder.UpdateContext(MainActivity.this);
+
         Button btnMapa = findViewById(R.id.btnMapa);
         Button btnLlista = findViewById(R.id.btnLlista);
-        btnMapa.setOnClickListener(v->ObrirMapa());
-        btnLlista.setOnClickListener(v->ObrirLlista());
-    }
-
-    public void ObrirMapa()
-    {
-        startActivity(new Intent(MainActivity.this, MapsActivity.class));
-    }
-
-    public void ObrirLlista()
-    {
-        startActivity(new Intent(MainActivity.this, LlistatGira.class));
+        Button btnPause = findViewById(R.id.btnPause);
+        btnMapa  .setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MapsActivity.class)));
+        btnLlista.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LlistatGira.class)));
+        btnPause .setOnClickListener(v -> MusicHolder.Pause());
     }
 }
