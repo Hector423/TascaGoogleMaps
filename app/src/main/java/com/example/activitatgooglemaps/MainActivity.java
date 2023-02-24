@@ -22,13 +22,11 @@ public class MainActivity extends AppCompatActivity
 
     public void ObrirMapa()
     {
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
-        startActivity(intent);
+        startActivity(new Intent(MainActivity.this, MapsActivity.class));
     }
 
     public void ObrirLlista()
     {
-        Intent intent = new Intent(MainActivity.this, LlistatGira.class);
-        startActivity(intent);
+        startActivity(new Intent(MainActivity.this, LlistatGira.class));
     }
 }
