@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity
 
     public void ObrirLlista()
     {
-        Intent intent = new Intent(MainActivity.this, MapsActivity.class);
+        Intent intent = new Intent(MainActivity.this, LlistatGira.class);
         startActivity(intent);
     }
 }
