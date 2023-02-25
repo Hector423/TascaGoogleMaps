@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<concerts>
+    <concert>
+        <pais>US</pais>
+        <localitat>Bangor, ME</localitat>
+        <escenari>Maine Savings Amphitheater</escenari>
+        <linkEntrades>https://www.songkick.com/es/concerts/40896903-big-time-rush-at-maine-savings-amphitheater</linkEntrades>
+    </concert>
+    <concert>
+        <pais>US</pais>
+        <localitat>Bethel, NY</localitat>
+        <escenari>Bethel Woods Center for the Arts</escenari>
+        <linkEntrades>https://www.songkick.com/es/concerts/40905849-big-time-rush-at-bethel-woods-center-for-the-arts</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Colombia</pais>
+        <localitat>Bogota</localitat>
+        <escenari>Chamorro Entertainment City Hall</escenari>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618846-big-time-rush-at-chamorro-entertainment-city-hall</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Brazil</pais>
+        <localitat>São Paulo</localitat>
+        <escenari>Espaço Unimed</escenari>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618839-big-time-rush-at-espaco-unimed</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Brazil</pais>
+        <localitat>Rio de Janeiro</localitat>
+        <escenari>Vivo Rio</escenari>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618842-big-time-rush-at-vivo-rio</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Chile</pais>
+        <localitat>Santiago</localitat>
+        <escenari>Teatro Caupolicán</escenari>
+        <linkEntrades>https://www.songkick.com/concerts/40618658-big-time-rush-at-teatro-caupolican</linkEntrades>
+    </concert>
+</concerts>
