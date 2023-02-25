@@ -62,7 +62,7 @@ public class LlistatGira extends AppCompatActivity {
                     recyclerView.setLayoutManager(new LinearLayoutManager(this));
                     DistribucioLlistat distribucioLlistat = new DistribucioLlistat(paisos, localitat, escenari);
                     recyclerView.setAdapter(distribucioLlistat);
-                    distribucioLlistat.notifyItemInserted(1);
+                    distribucioLlistat.notifyItemInserted(paisos.size()-1);
                 }
             }
         }catch (

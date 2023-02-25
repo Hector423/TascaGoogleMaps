@@ -23,6 +23,8 @@ public class DistribucioLlistat extends RecyclerView.Adapter<Adaptador> {
 
     public DistribucioLlistat(List<String> paisos, List<String> localitat, List<String> escenari){
         this.paisos = paisos;
+        this.localitat = localitat;
+        this.escenari = escenari;
     }
 
     @NonNull
@@ -35,8 +37,8 @@ public class DistribucioLlistat extends RecyclerView.Adapter<Adaptador> {
     @Override
     public void onBindViewHolder(@NonNull Adaptador holder, int position) {
         holder.textPais.setText(paisos.get(position));
-        holder.textLocalitat.setText(paisos.get(position));
-        holder.textEstadi.setText(paisos.get(position));
+        holder.textLocalitat.setText(localitat.get(position));
+        holder.textEstadi.setText(escenari.get(position));
         holder.textViewData.setText(paisos.get(position));
         holder.textViewComprar.setText(paisos.get(position));
         holder.textViewBuscar.setText(paisos.get(position));
