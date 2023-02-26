@@ -49,7 +49,10 @@ public class MusicHolder
     public static void Pause()
     {
         musicRunning = false;
-        if(mediaPlayer!=null) mediaPlayer.pause();
+        if(mediaPlayer!=null)
+        {
+            mediaPlayer.pause();
+        }
     }
 
     public static void Terminate()
