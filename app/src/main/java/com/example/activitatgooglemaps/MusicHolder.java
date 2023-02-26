@@ -2,6 +2,7 @@ package com.example.activitatgooglemaps;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.media.MediaPlayer;
 import android.media.SoundPool;
 import androidx.fragment.app.FragmentActivity;
@@ -26,11 +27,14 @@ public class MusicHolder
     @SuppressLint("StaticFieldLeak")
     private static Context currentContext;
 
+
+
     public static boolean musicRunning = false;
 
     public static void ForceStart()
     {
         musicRunning = false;
+
         Terminate();
         mediaPlayer = null;
         Start();
@@ -46,11 +50,33 @@ public class MusicHolder
         }
     }
 
+    public static boolean isPlaying() {
+        if (mediaPlayer != null) {
+            return mediaPlayer.isPlaying();
+        }
+        return false;
+    }
+
     public static void Pause()
     {
+
         musicRunning = false;
+
         if(mediaPlayer!=null) mediaPlayer.pause();
     }
+
+    public static void PausePreferences(boolean sharedPreferences){
+        if(!musicRunning) {
+            musicRunning = true;
+            if(mediaPlayer==null) mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
+            mediaPlayer.start();
+            }
+            if (sharedPreferences) {
+                mediaPlayer.start();
+            } else {
+                mediaPlayer.pause();
+            }
+        }
 
     public static void Terminate()
     {

@@ -35,6 +35,10 @@
             android:name=".LlistatGira"
             android:exported="true">
         </activity>
+        <activity
+            android:name=".Preferencies"
+            android:exported="true">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAbwinxnSpOJ6hrxkQrcyBVeVwfZsdy9Dg" />
@@ -45,6 +49,7 @@
             android:label="@string/title_activity_maps">
 
         </activity>
+
     </application>
 
 </manifest>

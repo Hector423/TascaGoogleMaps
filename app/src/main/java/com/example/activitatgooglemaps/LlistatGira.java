@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import org.w3c.dom.Document;
@@ -25,12 +27,8 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 public class LlistatGira extends AppCompatActivity {
-
-    private HashMap<String, String> llistatXML = new HashMap<>();
     private RecyclerView recyclerView;
-    private ArrayList<String> arrayList = new ArrayList<>();
-    private ImageView imageView;
-    private ArrayAdapter<String> lAdapter;
+    private Button botoEnrere;
     private List<String> paisos = new LinkedList<>();
     private List<String> localitat = new LinkedList<>();
     private List<String> escenari = new LinkedList<>();
@@ -41,7 +39,10 @@ public class LlistatGira extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_llistat);
-        List<String> items = new LinkedList<>();
+        botoEnrere = findViewById(R.id.botoEnrere);
+
+        botoEnrere.setOnClickListener(v -> finish());
+
 
         try {
             InputStream input = getAssets().open("concerts.xml");
