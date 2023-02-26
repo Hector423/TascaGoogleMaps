@@ -53,14 +53,14 @@ public class LlistatGira extends AppCompatActivity {
             for(int i = 0; i< nList.getLength(); i++){
                 Node node = nList.item(i);
                 if (node.getNodeType() == Node.ELEMENT_NODE){
-
                     paisos.add(node.getChildNodes().item(1).getTextContent());
                     localitat.add(node.getChildNodes().item(3).getTextContent());
                     escenari.add(node.getChildNodes().item(5).getTextContent());
-
+                    data.add(node.getChildNodes().item(7).getTextContent());
+                    link.add(node.getChildNodes().item(9).getTextContent());
                     recyclerView = findViewById(R.id.listadoConcierto);
                     recyclerView.setLayoutManager(new LinearLayoutManager(this));
-                    DistribucioLlistat distribucioLlistat = new DistribucioLlistat(paisos, localitat, escenari);
+                    DistribucioLlistat distribucioLlistat = new DistribucioLlistat(this, paisos, localitat, escenari, data, link);
                     recyclerView.setAdapter(distribucioLlistat);
                     distribucioLlistat.notifyItemInserted(paisos.size()-1);
                 }

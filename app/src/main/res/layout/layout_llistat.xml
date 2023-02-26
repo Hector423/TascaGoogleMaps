@@ -1,29 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        tools:context=".MainActivity">
-
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#595858"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
     <ImageView
-            android:id="@+id/imagenListado"
-            android:layout_width="245dp"
-            android:layout_height="94dp"
-            app:srcCompat="@drawable/logo"
-            tools:layout_editor_absoluteX="67dp"
-            tools:layout_editor_absoluteY="-2dp" />
+        android:id="@+id/imagenListado"
+        android:layout_width="245dp"
+        android:layout_height="94dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/logo" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="0"
+        android:fillViewport="true"></ScrollView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listadoConcierto"
-        android:layout_width="381dp"
-        android:layout_height="611dp"
-        android:layout_marginTop="96dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#FD3E3E"
+        android:text="Tornar al inici"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.291" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

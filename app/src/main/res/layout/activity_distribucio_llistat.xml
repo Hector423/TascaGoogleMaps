@@ -9,9 +9,9 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/disenyLlistat"
-        android:layout_width="393dp"
+        android:layout_width="410dp"
         android:layout_height="210dp"
-        android:background="#FBFBFB"
+        android:background="#FD3E3E"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -20,108 +20,149 @@
 
         <ImageView
             android:id="@+id/imageViewLogo"
-            android:layout_width="135dp"
-            android:layout_height="138dp"
+            android:layout_width="148dp"
+            android:layout_height="149dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.06"
+            app:layout_constraintHorizontal_bias="0.061"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:srcCompat="@drawable/imatge_album" />
+            app:layout_constraintVertical_bias="0.737"
+            app:srcCompat="@drawable/imatge_album" />
 
         <TextView
             android:id="@+id/textViewPais"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EEUU"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintHorizontal_bias="0.446"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.031" />
+            app:layout_constraintVertical_bias="0.036" />
 
         <TextView
             android:id="@+id/textViewLocalitat"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="155dp"
+            android:layout_height="23dp"
             android:text="Bangor, ME"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.658"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.193" />
+            app:layout_constraintVertical_bias="0.31" />
 
         <TextView
             android:id="@+id/textViewNomEstadi"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="185dp"
+            android:layout_height="33dp"
             android:text="Maine Savings Amphitheater"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.754"
+            app:layout_constraintHorizontal_bias="0.746"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.35" />
+            app:layout_constraintVertical_bias="0.564" />
 
         <TextView
             android:id="@+id/textViewData"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="94dp"
+            android:layout_height="19dp"
             android:text="11 Julio 2023"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.521"
+            app:layout_constraintHorizontal_bias="0.531"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.502" />
+            app:layout_constraintVertical_bias="0.811" />
 
         <TextView
             android:id="@+id/textViewComprar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Comprar entrades ->"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.603"
+            app:layout_constraintHorizontal_bias="0.602"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.67" />
-
-        <ImageButton
-            android:id="@+id/botoMapaLloc"
-            android:layout_width="42dp"
-            android:layout_height="41dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.766"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.905"
-            app:srcCompat="@drawable/icono" />
+            app:layout_constraintVertical_bias="0.916" />
 
         <ImageButton
             android:id="@+id/botoLinkEntrades"
             android:layout_width="43dp"
             android:layout_height="40dp"
+            android:background="@drawable/icono_tarjeta"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.914"
+            app:layout_constraintHorizontal_bias="0.844"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.676"
-            app:srcCompat="@drawable/icono" />
+            app:layout_constraintVertical_bias="0.97" />
 
         <TextView
-            android:id="@+id/textViewBuscar"
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="171dp"
+            android:text="------------------------------------------------------------------------------------------------------------------------------"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_editor_absoluteX="5dp" />
+
+        <TextView
+            android:id="@+id/textViewTextCiutat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Buscar lloc ->"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="39dp"
+            android:layout_marginEnd="200dp"
+            android:layout_marginBottom="152dp"
+            android:text="Ciutat:"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.517"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.863" />
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTextLloc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="81dp"
+            android:layout_marginEnd="212dp"
+            android:layout_marginBottom="110dp"
+            android:text="Lloc:"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textViewTextData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="168dp"
+            android:layout_marginTop="136dp"
+            android:layout_marginEnd="209dp"
+            android:layout_marginBottom="55dp"
+            android:text="Data:"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

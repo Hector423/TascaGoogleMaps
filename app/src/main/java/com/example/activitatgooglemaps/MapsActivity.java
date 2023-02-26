@@ -57,17 +57,23 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         // Add a marker in Sydney and move the camera
 
         LatLng bangor = new LatLng(44.79815412287835, -68.7732079498604);
-        LatLng santiago = new LatLng(-33.456153371573194, -70.64956511892082);
+        LatLng bethel = new LatLng(41.69720618735568, -74.87763868769002);
         LatLng bogota = new LatLng(4.740328531486702, -74.04890033103689);
         LatLng saoPaulo = new LatLng(-23.527640215511617, -46.66786248844115);
         LatLng rioDeJaneiro = new LatLng(-22.91320630400053, -43.17140788845218);
         LatLng fortworth = new LatLng(32.74113809653637, -97.36895660196694);
-        mMap.addMarker(new MarkerOptions().position(bangor).title("Bangor, US").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        LatLng durant = new LatLng(33.95185097510312, -96.41259434469025);
+        LatLng southaven = new LatLng(34.95142640558342, -89.93410762747492);
+        LatLng charlotte = new LatLng(35.32725546615668, -80.71226838698718);
+        mMap.addMarker(new MarkerOptions().position(bangor).title("Bangor, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(durant).title("Durant, OK, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(charlotte).title("Charlotte, NC, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(southaven).title("Southaven, MS, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
         mMap.addMarker(new MarkerOptions().position(saoPaulo).title("São Paulo, Brazil").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
         mMap.addMarker(new MarkerOptions().position(bogota).title("Bogota, Colombia").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
-        mMap.addMarker(new MarkerOptions().position(santiago).title("Santiago, Chile").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(bethel).title("Bethel, NY, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
         mMap.addMarker(new MarkerOptions().position(rioDeJaneiro).title("Rio de Janeiro, Brazil").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
-        mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, US").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
+        mMap.addMarker(new MarkerOptions().position(fortworth).title("Fort Worth, TX, EEUU").icon(BitmapDescriptorFactory.fromResource(R.drawable.icono)));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(bangor));
         mMap.moveCamera(CameraUpdateFactory.zoomTo(15));
 
