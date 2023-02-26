@@ -37,7 +37,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 //        mp = MediaPlayer.create(this, R.raw.musica_mapa);
 //        mp.start();
         MusicHolder.UpdateContext(MapsActivity.this);
-        MusicHolder.Start();
+        if(!MusicHolder.isInitialized()) MusicHolder.Start();
 
     }
 
