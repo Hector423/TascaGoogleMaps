@@ -61,4 +61,9 @@ public class MusicHolder
     {
         currentContext = newContext;
     }
+
+    public static boolean isInitialized()
+    {
+        return mediaPlayer != null;
+    }
 }
