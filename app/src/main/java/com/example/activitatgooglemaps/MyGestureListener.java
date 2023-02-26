@@ -36,10 +36,20 @@ public class MyGestureListener extends GestureDetector.SimpleOnGestureListener
      * @return
      */
     @Override
-    public boolean onDown(@NonNull MotionEvent e)
+    public boolean onDown(MotionEvent event)
     {
-//        return super.onDown(e);
-        fingersDown = e.getPointerCount();
+        fingersDown = event.getPointerCount();
         return true;
+    }
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
+        if (fingersDown == 3 && distanceY < 0){
+            // Trigger three-fingers-down scrolling gesture
+//            scrollView.scrollBy(0, -50);
+            Toast.makeText(context/*getApplicationContext()*/, "SCROLL DOWN!", Toast.LENGTH_SHORT).show();
+
+        }
+        return super.onScroll(e1, e2, distanceX, distanceY);
     }
 }
