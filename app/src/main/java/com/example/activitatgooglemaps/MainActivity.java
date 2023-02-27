@@ -17,28 +17,20 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener
 {
-//    private static final int 120 = 120;
-//    private static final int 250 = 250;
-//    private static final int 200 = 200;
     public Button btnPause;
     public Button btnResume;
     private GestureDetector gestureDetector;
     View.OnTouchListener gestureListener;
-
-
     boolean isMusicPlaying;
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Create instance of gesture listener class
         MyGestureListener gestureListener = new MyGestureListener(this);
 
-        // Create instance of gesture detector class
-//        gestureDetector = new GestureDetector(this, gestureListener);
-        // Gesture detection
         gestureDetector = new GestureDetector(new MyGestureDetector(this));
         gestureListener = new MyGestureListener(this)
         {
@@ -48,15 +40,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
 
-//        gestureDetector.setListener(new MyGestureDetector.Listener()
-//        {
-//            @Override
-//            public void onInterestingEvent()
-//            {
-//                UpdateButtonState();
-//            }
-//        });
-
         cargarPreferencies();
         MusicHolder.UpdateContext(MainActivity.this);
 
@@ -64,20 +47,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Button btnLlista = findViewById(R.id.btnLlista);
         btnPause  = findViewById(R.id.btnPause);
         btnResume = findViewById(R.id.btnResume);
-        btnPause .setVisibility(View./*VISIBLE*/GONE);
+        btnPause .setVisibility(View.GONE);
         btnResume.setVisibility(View.GONE);
 
         ImageButton btnImgPref   = findViewById(R.id.btnImgPref);
         ImageButton btnImgMusica = findViewById(R.id.btnImgMusica);
         ImageButton btnImgTancar = findViewById(R.id.btnImgTancar);
 
-//      Button btnPreferencies = findViewById(R.id.botoPreferencies);
-        btnMapa  .setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MapsActivity.class)));
-        btnLlista.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LlistatGira.class)));
-//      btnPause .setOnClickListener(v -> { if(MusicHolder.isInitialized()) { btnPause.setVisibility(View.GONE); btnResume.setVisibility(View.VISIBLE); MusicHolder.Pause(); }});
-//      btnResume.setOnClickListener(v -> { if(MusicHolder.isInitialized()) { btnPause.setVisibility(View.VISIBLE); btnResume.setVisibility(View.GONE); MusicHolder.Start(); }});
-//      btnPreferencies.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Preferencies.class)));
-        btnImgPref.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Preferencies.class)));
+        btnMapa     .setOnClickListener(v -> startActivity(new Intent(MainActivity.this, MapsActivity.class)));
+        btnLlista   .setOnClickListener(v -> startActivity(new Intent(MainActivity.this, LlistatGira.class)));
+        btnImgPref  .setOnClickListener(v -> startActivity(new Intent(MainActivity.this, Preferencies.class)));
         btnImgMusica.setOnClickListener(v -> FlipMusic());
         btnImgTancar.setOnClickListener(v -> FinishApp());
     }
@@ -86,21 +65,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     {
         if(MusicHolder.musicRunning)
         {
-            if(MusicHolder.isInitialized())
-            {
-//                    btnPause.setVisibility(View.VISIBLE);
-//                    btnResume.setVisibility(View.GONE);
-                MusicHolder.Pause();
-            }
+            if(MusicHolder.isInitialized()) MusicHolder.Pause();
         }
         else
         {
-            if(MusicHolder.isInitialized())
-            {
-//                    btnPause.setVisibility(View.GONE);
-//                    btnResume.setVisibility(View.VISIBLE);
-                MusicHolder.Start();
-            }
+            if(MusicHolder.isInitialized()) MusicHolder.Start();
         }
     }
 
@@ -124,8 +93,51 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
-        // Pass touch event to gesture detector
         return gestureDetector.onTouchEvent(event);
+    }
+
+    public void UpdateButtonState()
+    {
+        if(MusicHolder.musicRunning)
+        {
+            if(MusicHolder.isInitialized())
+            {
+                btnPause.setVisibility(View.VISIBLE);
+                btnResume.setVisibility(View.GONE);
+            }
+        }
+        else
+        {
+            if(MusicHolder.isInitialized())
+            {
+                btnPause.setVisibility(View.GONE);
+                btnResume.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+    public void cargarPreferencies()
+    {
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        MusicHolder.PausePreferences(sharedPreferences.getBoolean("Musica habilitada: ", false));
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle outState)
+    {
+        super.onSaveInstanceState(outState);
+        outState.putBoolean("isMusicPlaying", isMusicPlaying);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState)
+    {
+        super.onRestoreInstanceState(savedInstanceState);
+        isMusicPlaying = savedInstanceState.getBoolean("isMusicPlaying");
+    }
+
+    protected void onPause()
+    {
+        super.onPause();
+        MusicHolder.Pause();
     }
 
     /**
@@ -139,100 +151,57 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-    public void UpdateButtonState()
+    /**
+     * Called when pointer capture is enabled or disabled for the current window.
+     *
+     * @param hasCapture True if the window has pointer capture.
+     */
+    @Override
+    public void onPointerCaptureChanged(boolean hasCapture)
     {
-        if(MusicHolder.musicRunning)
+        super.onPointerCaptureChanged(hasCapture);
+    }
+
+    private class MyGestureDetector extends GestureDetector.SimpleOnGestureListener
+    {
+        Context context;
+
+        public MyGestureDetector(Context mainActivity)
         {
-            if(MusicHolder.isInitialized())
-            {
-                btnPause.setVisibility(View.VISIBLE);
-                btnResume.setVisibility(View.GONE);
-//              MusicHolder.Pause();
-            }
+            context = mainActivity;
         }
-        else
+
+        @Override
+        public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
         {
-            if(MusicHolder.isInitialized())
+            try
             {
-                btnPause.setVisibility(View.GONE);
-                btnResume.setVisibility(View.VISIBLE);
-//              MusicHolder.Start();
-            }
-        }
-    }
-    public void cargarPreferencies(){
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        MusicHolder.PausePreferences(sharedPreferences.getBoolean("Musica habilitada: ", false));
-    }
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
-
-        outState.putBoolean("isMusicPlaying", isMusicPlaying);
-    }
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        isMusicPlaying = savedInstanceState.getBoolean("isMusicPlaying");
-    }
-    protected void onPause() {
-        super.onPause();
-        MusicHolder.Pause();
-    }
-//}
-
-private class MyGestureDetector extends GestureDetector.SimpleOnGestureListener
-{
-    Context context;
-//    Listener listener;
-
-//    public interface Listener
-//    {
-//        public void onInterestingEvent();
-//    }
-
-//    public void setListener(Listener listener)
-//    {
-//        this.listener = listener;
-//    }
-
-    public MyGestureDetector(Context mainActivity)
-    {
-        context = mainActivity;
-    }
-
-    @Override
-    public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY)
-    {
-        try
-        {
-            if(Math.abs(e1.getY()-e2.getY())>250 && Math.abs(velocityY)>200)
-            {
-                System.out.println("Down");
-                if(MusicHolder.musicRunning)
+                if(Math.abs(e1.getY()-e2.getY())>250 && Math.abs(velocityY)>200)
                 {
-                    if(MusicHolder.isInitialized()) MusicHolder.Pause();
+                    System.out.println("Down");
+                    if(MusicHolder.musicRunning)
+                    {
+                        if(MusicHolder.isInitialized()) MusicHolder.Pause();
+                    }
+                    else
+                    {
+                        if(MusicHolder.isInitialized()) MusicHolder.Start();
+                    }
                 }
-                else
+                else if(Math.abs(e2.getY()-e1.getY())>250 && Math.abs(velocityY)>200) System.out.println("Up");
+                else if(e1.getX()-e2.getX()>120 && Math.abs(velocityX)>200)
                 {
-                    if(MusicHolder.isInitialized()) MusicHolder.Start();
+                    System.out.println("Left");
+                    ObrirMapa();
+                }
+                else if(e2.getX()-e1.getX()>120 && Math.abs(velocityX)>200)
+                {
+                    System.out.println("Right");
+                    ObrirLlista();
                 }
             }
-            else if(Math.abs(e2.getY()-e1.getY())>250 && Math.abs(velocityY)>200) System.out.println("Up");
-            else if(e1.getX()-e2.getX()>120 && Math.abs(velocityX)>200)
-            {
-                System.out.println("Left");
-//                if(MusicHolder.isInitialized()) MusicHolder.Pause();
-                ObrirMapa();
-            }
-            else if(e2.getX()-e1.getX()>120 && Math.abs(velocityX)>200)
-            {
-                System.out.println("Right");
-//                if(MusicHolder.isInitialized()) MusicHolder.Start();
-                ObrirLlista();
-            }
+            catch(Exception ignored) { }
+            return false;
         }
-        catch(Exception ignored) { }
-        return false;
     }
-}}
+}

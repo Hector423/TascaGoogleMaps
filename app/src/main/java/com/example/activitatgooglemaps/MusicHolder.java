@@ -33,112 +33,63 @@ public class MusicHolder
 
     public static void ForceStart()
     {
-//        if(preferences==true)
-//        {
-
         musicRunning = false;
-
         Terminate();
         mediaPlayer = null;
         Start();
-//        }
     }
 
     public static void ForceStop()
     {
-//        if(preferences==true) {
-            musicRunning = false;
-            Terminate();
-            mediaPlayer = null;
-//        }
+        musicRunning = false;
+        Terminate();
+        mediaPlayer = null;
     }
 
     public static void Prepare()
     {
-//        if(preferences==true) {
-            ForceStop();
-            musicRunning = false;
-            mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
-//        }
+        ForceStop();
+        musicRunning = false;
+        mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
     }
 
     public static void Start()
     {
-//        if(preferences==true)
-//        {
         if(!musicRunning)
         {
             musicRunning = true;
             if(mediaPlayer==null) mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
             mediaPlayer.start();
-        }//}
+        }
     }
 
-    public static boolean isPlaying() {
-//        if(preferences==true)
-//        {
-        if (mediaPlayer != null) {
-            return mediaPlayer.isPlaying();
-        }//}
-        return false;
+    public static boolean isPlaying()
+    {
+        return mediaPlayer != null && mediaPlayer.isPlaying();
     }
 
     public static void Pause()
     {
-//        if(preferences==true)
-//        {
         musicRunning = false;
-
-        if(mediaPlayer!=null) mediaPlayer.pause();//}
+        if(mediaPlayer!=null) mediaPlayer.pause();
     }
 
-    public static void PausePreferences(boolean sharedPreferences){
-//        if(!musicRunning) {
-//            musicRunning = true;
-//            if(mediaPlayer==null) mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
-//            mediaPlayer.start();
-//            }
-//            if (sharedPreferences) {
-//                mediaPlayer.start();
-//            } else {
-//                mediaPlayer.pause();
-//            }
-//            preferences = false;
-//            if(sharedPreferences==true)
-//            {
-//                preferences = true;
-//                musicRunning = false;
-//                Prepare();
-//                musicRunning = false;
-//            }
-//            else
-//            {
-//                preferences = false;
-//                currentContext = null;
-//                ForceStop();
-//                musicRunning = false;
-//            }
-        }
+    public static void PausePreferences(boolean sharedPreferences)
+    {
+    }
 
     public static void Terminate()
     {
-//        if(preferences==true)
-//        {
-        mediaPlayer.release();//}
+        mediaPlayer.release();
     }
 
     public static void UpdateContext(Context newContext)
     {
-//        if(preferences==true) {
-            currentContext = newContext;
-//        }
+        currentContext = newContext;
     }
 
     public static boolean isInitialized()
     {
-//        if(preferences==true) {
-            return mediaPlayer != null;
-//        }
-//        return false;
+        return mediaPlayer != null;
     }
 }

@@ -26,7 +26,8 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-public class LlistatGira extends AppCompatActivity {
+public class LlistatGira extends AppCompatActivity
+{
     private RecyclerView recyclerView;
     private Button botoEnrere;
     private List<String> paisos = new LinkedList<>();
@@ -36,29 +37,32 @@ public class LlistatGira extends AppCompatActivity {
     private List<String> link = new LinkedList<>();
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_llistat);
         botoEnrere = findViewById(R.id.botoEnrere);
 
         botoEnrere.setOnClickListener(v -> finish());
 
-
-        try {
+        try
+        {
             InputStream input = getAssets().open("concerts.xml");
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder docBuilder = builderFactory.newDocumentBuilder();
             Document doc = docBuilder.parse(input);
             NodeList nList = doc.getElementsByTagName("concert");
             
-            for(int i = 0; i< nList.getLength(); i++){
+            for(int i=0; i<nList.getLength(); i++)
+            {
                 Node node = nList.item(i);
-                if (node.getNodeType() == Node.ELEMENT_NODE){
-                    paisos.add(node.getChildNodes().item(1).getTextContent());
+                if(node.getNodeType()==Node.ELEMENT_NODE)
+                {
+                    paisos   .add(node.getChildNodes().item(1).getTextContent());
                     localitat.add(node.getChildNodes().item(3).getTextContent());
-                    escenari.add(node.getChildNodes().item(5).getTextContent());
-                    data.add(node.getChildNodes().item(7).getTextContent());
-                    link.add(node.getChildNodes().item(9).getTextContent());
+                    escenari .add(node.getChildNodes().item(5).getTextContent());
+                    data     .add(node.getChildNodes().item(7).getTextContent());
+                    link     .add(node.getChildNodes().item(9).getTextContent());
                     recyclerView = findViewById(R.id.listadoConcierto);
                     recyclerView.setLayoutManager(new LinearLayoutManager(this));
                     DistribucioLlistat distribucioLlistat = new DistribucioLlistat(this, paisos, localitat, escenari, data, link);
@@ -66,14 +70,9 @@ public class LlistatGira extends AppCompatActivity {
                     distribucioLlistat.notifyItemInserted(paisos.size()-1);
                 }
             }
-        }catch (
-                IOException e) {
-            e.printStackTrace();
-        } catch (
-                ParserConfigurationException e) {
-            e.printStackTrace();
-        } catch (
-                SAXException e) {
+        }
+        catch(IOException | ParserConfigurationException | SAXException e)
+        {
             e.printStackTrace();
         }
     }
