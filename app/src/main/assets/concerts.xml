@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<concerts>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Bangor, ME</localitat>
+        <escenari>Maine Savings Amphitheater</escenari>
+        <data>11 Juliol 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40896903-big-time-rush-at-maine-savings-amphitheater</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Colombia</pais>
+        <localitat>Bogota</localitat>
+        <escenari>Chamorro Entertainment City Hall</escenari>
+        <data>28 Febrero 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618846-big-time-rush-at-chamorro-entertainment-city-hall</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Brazil</pais>
+        <localitat>São Paulo</localitat>
+        <escenari>Espaço Unimed</escenari>
+        <data>3 Març 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618839-big-time-rush-at-espaco-unimed</linkEntrades>
+    </concert>
+    <concert>
+        <pais>Brazil</pais>
+        <localitat>Rio de Janeiro</localitat>
+        <escenari>Vivo Rio</escenari>
+        <data>5 Juliol 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40618842-big-time-rush-at-vivo-rio</linkEntrades>
+    </concert>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Bethel, NY</localitat>
+        <escenari>Bethel Woods Center for the Arts</escenari>
+        <data>20 Juny 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40905849-big-time-rush-at-bethel-woods-center-for-the-arts</linkEntrades>
+    </concert>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Fort Worth, TX</localitat>
+        <escenari>Dickies Arena</escenari>
+        <data>22 Juny 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40896719-big-time-rush-at-dickies-arena</linkEntrades>
+    </concert>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Durant, OK</localitat>
+        <escenari>Choctaw Grand Theater</escenari>
+        <data>24 Juny 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40896949-big-time-rush-at-choctaw-grand-theater</linkEntrades>
+    </concert>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Southaven, MS</localitat>
+        <escenari>BankPlus Amphitheatre at Snowden Grove</escenari>
+        <data>25 Juny 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40896658-big-time-rush-at-bankplus-amphitheatre-at-snowden-grove</linkEntrades>
+    </concert>
+    <concert>
+        <pais>EEUU</pais>
+        <localitat>Charlotte, NC</localitat>
+        <escenari>PNC Music Pavilion</escenari>
+        <data>27 Juny 2023</data>
+        <linkEntrades>https://www.songkick.com/es/concerts/40897119-big-time-rush-at-pnc-music-pavilion</linkEntrades>
+    </concert>
+</concerts>
