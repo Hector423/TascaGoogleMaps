@@ -111,6 +111,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         finishAffinity();
     }
 
+    public void ObrirMapa()
+    {
+        startActivity(new Intent(MainActivity.this, MapsActivity.class));
+    }
+
+    public void ObrirLlista()
+    {
+        startActivity(new Intent(MainActivity.this, LlistatGira.class));
+    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event)
     {
@@ -169,22 +179,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onPause();
         MusicHolder.Pause();
     }
-}
+//}
 
-class MyGestureDetector extends GestureDetector.SimpleOnGestureListener
+private class MyGestureDetector extends GestureDetector.SimpleOnGestureListener
 {
     Context context;
-    Listener listener;
+//    Listener listener;
 
-    public interface Listener
-    {
-        public void onInterestingEvent();
-    }
+//    public interface Listener
+//    {
+//        public void onInterestingEvent();
+//    }
 
-    public void setListener(Listener listener)
-    {
-        this.listener = listener;
-    }
+//    public void setListener(Listener listener)
+//    {
+//        this.listener = listener;
+//    }
 
     public MyGestureDetector(Context mainActivity)
     {
@@ -212,15 +222,17 @@ class MyGestureDetector extends GestureDetector.SimpleOnGestureListener
             else if(e1.getX()-e2.getX()>120 && Math.abs(velocityX)>200)
             {
                 System.out.println("Left");
-                if(MusicHolder.isInitialized()) MusicHolder.Pause();
+//                if(MusicHolder.isInitialized()) MusicHolder.Pause();
+                ObrirMapa();
             }
             else if(e2.getX()-e1.getX()>120 && Math.abs(velocityX)>200)
             {
                 System.out.println("Right");
-                if(MusicHolder.isInitialized()) MusicHolder.Start();
+//                if(MusicHolder.isInitialized()) MusicHolder.Start();
+                ObrirLlista();
             }
         }
         catch(Exception ignored) { }
         return false;
     }
-}
+}}
