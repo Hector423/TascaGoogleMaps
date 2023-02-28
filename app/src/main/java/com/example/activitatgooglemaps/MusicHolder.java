@@ -27,17 +27,30 @@ public class MusicHolder
     @SuppressLint("StaticFieldLeak")
     private static Context currentContext;
 
-
+    private static boolean preferences = false;
 
     public static boolean musicRunning = false;
 
     public static void ForceStart()
     {
         musicRunning = false;
-
         Terminate();
         mediaPlayer = null;
         Start();
+    }
+
+    public static void ForceStop()
+    {
+        musicRunning = false;
+        Terminate();
+        mediaPlayer = null;
+    }
+
+    public static void Prepare()
+    {
+        ForceStop();
+        musicRunning = false;
+        mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
     }
 
     public static void Start()
@@ -50,32 +63,20 @@ public class MusicHolder
         }
     }
 
-    public static boolean isPlaying() {
-        if (mediaPlayer != null) {
-            return mediaPlayer.isPlaying();
-        }
-        return false;
+    public static boolean isPlaying()
+    {
+        return mediaPlayer != null && mediaPlayer.isPlaying();
     }
 
     public static void Pause()
     {
         musicRunning = false;
-
         if(mediaPlayer!=null) mediaPlayer.pause();
     }
 
-    public static void PausePreferences(boolean sharedPreferences){
-        if(!musicRunning) {
-            musicRunning = true;
-            if(mediaPlayer==null) mediaPlayer = MediaPlayer.create(currentContext, R.raw.musica_mapa);
-            mediaPlayer.start();
-            }
-            if (sharedPreferences) {
-                mediaPlayer.start();
-            } else {
-                mediaPlayer.pause();
-            }
-        }
+    public static void PausePreferences(boolean sharedPreferences)
+    {
+    }
 
     public static void Terminate()
     {

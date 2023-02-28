@@ -10,8 +10,9 @@
 
     <ImageView
         android:id="@+id/imagenListado"
-        android:layout_width="245dp"
-        android:layout_height="94dp"
+        android:layout_width="250dp"
+        android:layout_height="155dp"
+        android:layout_marginTop="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -47,6 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
         android:text="STOP THE MUSIC"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -57,6 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="128dp"
         android:text="PONME LA ROLA"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -66,6 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Preferencies"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.939"
@@ -73,11 +77,31 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.976" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:srcCompat="@drawable/ic_launcher_background"
-        tools:layout_editor_absoluteX="124dp"
-        tools:layout_editor_absoluteY="456dp" />
+    <LinearLayout
+        android:layout_width="304dp"
+        android:layout_height="104dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnImgPref"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/openmoji_2699_colour" />
+
+        <ImageButton
+            android:id="@+id/btnImgMusica"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/openmoji_1f509_colour" />
+
+        <ImageButton
+            android:id="@+id/btnImgTancar"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:background="@drawable/openmoji_274c_colour" />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
